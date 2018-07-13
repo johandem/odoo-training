@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_backend" name="library assets backend" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/library/static/src/js/chart_widget.js"></script>
+            <script src="/library/static/src/js/dashboard.js" type="text/javascript"/>
+        </xpath>
+    </template>
+</odoo>

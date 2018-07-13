@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="library.book_rent">
+        <t t-call="website.layout">
+            <t t-set="title">Books</t>
+            <div class="oe_structure">
+                <div class="container">
+                    <t t-foreach="books" t-as="b">
+                        <div>
+                            <t t-esc="b.id"/>
+                            <t t-esc="b.name"/>
+                            <button name="rent" type="button"
+                                    class="btn btn-primary">
+                                Rent Book
+                            </button>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

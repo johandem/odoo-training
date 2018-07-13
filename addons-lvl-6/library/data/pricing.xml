@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="price_rent" model="library.pricing">
+            <field name="name">Week fee</field>
+            <field name="duration">1</field>
+            <field name="price">1.5</field>
+            <field name="type">linear</field>
+        </record>
+
+        <record id="price_loss" model="library.pricing">
+            <field name="name">Loss fee</field>
+            <field name="price">10</field>
+            <field name="type">fixed</field>
+        </record>
+
+    </data>
+</odoo>

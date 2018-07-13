@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <div t-name="quick_navigation">
+        <button type="button" class="btn btn-primary lost_book">Lost Books</button>
+        <button type="button" class="btn btn-primary bad_customer">Bad Customers</button>
+    </div>
+    <div t-name="statistics" class="o_library">
+        <div class="o_statistics">
+            <p>Money In This Month: <t t-esc="widget.stats.money_in"/> €</p>
+            <p>Money Lost This Month: <t t-esc="widget.stats.money_lost"/></p>
+            <p>Available Books: <t t-esc="widget.stats.nb_available_books"/></p>
+            <p>Lost Books This Month: <t t-esc="widget.stats.nb_lost_books"/></p>
+            <p>Lost Books: <t t-esc="widget.stats.nb_lost_books"/></p>
+            <p>Rentals This Month: <t t-esc="widget.stats.nb_rentals"/></p>
+            <p>Rented Books: <t t-esc="widget.stats.nb_rented_books"/></p>
+        </div>
+        <div class="o_fancy_pie_chart"/>
+    </div>
+    <div t-name="library-debt-warning" class="alert" role="alert">
+        This customer owes <t t-esc="amount"/>€.
+    </div>
+    <div t-name="LibraryCustomerButtons">
+        <button type="button" class="btn btn-primary o_geolocate">Geolocate</button>
+        <button type="button" class="btn btn-primary o_pay_amount">Pay Amount Owed</button>
+    </div>
+    <li t-name="LibrarySystrayItem" class="o_library_systray_item">
+        <input type="input" class="o_input"/>
+    </li>
+    <div t-name="AppSwitcherWarning" class="alert alert-danger">
+        Do not forget about Monday promotion!
+    </div>
+</templates>

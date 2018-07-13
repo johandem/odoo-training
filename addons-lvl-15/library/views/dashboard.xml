@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.actions.client" id="library.dashboard">
+            <field name="name">Dashboard</field>
+            <!-- client side id of the action -->
+            <field name="tag">library.dashboard</field>
+        </record>
+    
+        <menuitem name="Dashboard" id="menu_dashboard" parent="menu_root" action="library.dashboard" sequence="1"/>
+    </data>
+</odoo>

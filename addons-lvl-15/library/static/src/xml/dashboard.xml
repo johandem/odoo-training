@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="template" xml:space="preserve">
+    <div t-name="quick_navigation">
+        <button type="button" class="btn btn-primary lost_book">Lost Books</button>
+        <button type="button" class="btn btn-primary bad_customer">Bad Customers</button>
+    </div>
+    <div t-name="statistics">
+        <p>Money In This Month: <t t-esc="widget.stats.money_in"/> €</p>
+        <p>Money Lost This Month: <t t-esc="widget.stats.money_lost"/></p>
+        <p>Available Books: <t t-esc="widget.stats.nb_available_books"/></p>
+        <p>Lost Books This Month: <t t-esc="widget.stats.nb_lost_books"/></p>
+        <p>Lost Books: <t t-esc="widget.stats.nb_lost_books"/></p>
+        <p>Rentals This Month: <t t-esc="widget.stats.nb_rentals"/></p>
+        <p>Rented Books: <t t-esc="widget.stats.nb_rented_books"/></p>
+        <div class="fancy_pie_chart"/>
+    </div>
+</templates>

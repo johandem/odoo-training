@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="rental_view_form_id" model="ir.ui.view">
+            <field name="name">rental.form.view</field>
+            <field name="model">library.rental</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="customer_id" context="{'default_customer': True}"/>
+                            <field name="book_id" context="{'default_book': True}"/>
+                            <field name="rental_date"/>
+                            <field name="return_date"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="rental_view_tree_id" model="ir.ui.view">
+            <field name="name">rental.tree.view</field>
+            <field name="model">library.rental</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="book_id"/>
+                    <field name="customer_id"/>
+                    <field name="rental_date"/>
+                    <field name="return_date"/>
+                 </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_rental">
+            <field name="name">Rentals</field>
+            <field name="res_model">library.rental</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <act_window id="launch_rental_wizard" 
+                    name="New Rental"
+                    src_model="res.partner"
+                    res_model="library.rental.wizard"
+                    view_mode="form"
+                    target="new"
+                    key2="client_action_multi"/>
+
+        <record model="ir.ui.view" id="wizard_rental_form_view">
+            <field name="name">wizard.form</field>
+            <field name="model">library.rental.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Books">
+                    <group>
+                        <field name="book_ids"/>
+                    </group>
+                    <!-- <footer>
+                        <button name="subscribe" type="object" string="Subscribe" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" special="cancel"/>
+                    </footer> -->
+                </form>
+            </field>
+        </record>
+
+        <!-- actions -->
+        <menuitem name="Rentals" id="menu_rental" parent="menu_rental_top"
+                  action="action_rental"/>
+
+        <menuitem id="menu_new_rental" name="New Rental" parent="menu_rental_top" action="launch_rental_wizard"/>
+
+    </data>
+</odoo>

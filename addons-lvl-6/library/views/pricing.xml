@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="action_pricing">
+            <field name="name">Pricings</field>
+            <field name="res_model">library.pricing</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- actions -->
+        <menuitem name="Pricings" id="menu_pricing" parent="menu_rental_top"
+                  action="action_pricing"/>
+
+    </data>
+</odoo>

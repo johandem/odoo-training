@@ -1,0 +1,4 @@
+{
+    "python.pythonPath": "/home/odoo/.virtualenvs/odoo-venv/bin/python",
+    "python.linting.pylintEnabled": false
+}

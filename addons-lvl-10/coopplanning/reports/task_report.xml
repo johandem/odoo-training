@@ -1,0 +1,86 @@
+<!-- <?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report id="report_my_task" name="coopplanning.my_tasks_template" model="coopplanning.task" string="My Tasks" report_type="qweb-pdf"/>
+
+    <template id="coopplanning.my_tasks_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+
+                <div class="page">
+                    <t t-foreach="docs" t-as="doc">
+                        <h1 t-field="doc.name"/> - <h1 t-field="doc.worker_id.name"/>
+                        <p>From <span t-field="doc.start_time"/> to <span t-field="doc.end_time"/></p>
+                    </t>
+
+                    <p style="page-break-after:always;"></p>
+
+                    <t t-value="docs.mapped('worker_id')" t-set="docs_worker"/>
+                    <t t-foreach="docs_worker" t-as="doc_report">
+                        <h2 t-field="doc_report.name"/>
+                        <t t-foreach="doc_report.task_ids" t-as="task">
+                            <h2 t-esc="task.name"/>
+                            <p>From <span t-field="task.start_time"/> to <span t-field="task.end_time"/></p>
+                        </t> 
+                    </t>
+
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo> -->
+
+<odoo>
+    <report
+        id="report_planing"
+        model="coopplanning.task"
+        string="Planing task"
+        name="coopplanning.report_coop_planning"
+        file="coopplanning.report_coop_planning"
+        report_type="qweb-pdf" />
+
+    <template id="report_coop_planning">
+        <t t-call="web.html_container">
+
+            <t t-call="web.external_layout">
+                <div class="page">
+
+                    <t t-foreach="docs" t-as="doc">
+                        <h2 t-esc="doc.name"/> - <h2 t-esc="doc.worker_id.name"/>
+                         <table style="width:100%">
+                            <tr>
+                                <td style="width:50%">Start date</td>
+                                <td style="width:50%;text-align:right">End date</td>
+                            </tr>
+                            <tr>
+                                <td style="width:50%"><span t-field="doc.start_time"/></td>
+                                <td style="width:50%;text-align:right"><span t-field="doc.end_time"/></td>
+                            </tr>
+                        </table>
+                        <hr/>
+                    </t>
+
+                    <p style="page-break-after:always;"></p>
+                    <t t-value="docs.mapped('worker_id')" t-set="docs_worker"/>
+                    <t t-foreach="docs_worker" t-as="doc_report">
+                        <h2 t-field="doc_report.name"/>
+                        <t t-foreach="doc_report.task_ids" t-as="task">
+                            <h2 t-esc="task.name"/>
+                                <table style="width:100%">
+                                    <tr>
+                                        <td style="width:50%">Start date</td>
+                                        <td style="width:50%;text-align:right">End date</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%"><span t-field="task.start_time"/></td>
+                                        <td style="width:50%;text-align:right"><span t-field="task.end_time"/></td>
+                                    </tr>
+                                </table>
+                        <hr/>
+                        </t>
+                    </t>
+
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>
